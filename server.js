@@ -4,7 +4,7 @@ const bodyParser = require("body-parser")
 const cookieParser = require("cookie-parser")
 const cors = require("cors")
 const mongoose = require("mongoose")
-require("dotenv").config({path:"./.env.local"})
+//require("dotenv").config({path:"./.env.local"})
 
 // Import routes:
 const profileRoutes = require("./routes/profiles")
