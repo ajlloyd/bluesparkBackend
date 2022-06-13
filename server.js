@@ -31,6 +31,13 @@ app.use(cookieParser())
 // Cors Middleware - Cross Origin Resource Sharing - when development use cors (as browsers do not allow cross origin resources 3000 and 8000)
 if (process.env.NODE_ENV == "development") {
     app.use(cors({ origin: `${process.env.CLIENT_URL}`}))
+} else if (process.env.NODE_ENV == "production") {
+    app.use(cors({
+        methods: 'GET,POST,PATCH,DELETE,OPTIONS',
+        optionsSuccessStatus: 200,
+        origin: 'https://sparkfit.vercel.app'
+      }));
+      app.options('*', cors());
 }
 
 // Routes Middleware
