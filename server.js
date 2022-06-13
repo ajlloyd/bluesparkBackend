@@ -38,7 +38,7 @@ app.use("/api", profileRoutes)
 
 
 // Port --------------------------------------------------------------------------
-const port = process.env.PORT || 8000
-app.listen(port, () => {
-    console.log(`Server Running on port ${port}`)
+var server_port = process.env.MY_PORT || process.env.PORT || 80;
+app.listen(server_port, () => {
+    console.log(`Server Running on port ${server_port}`)
 })
