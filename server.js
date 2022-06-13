@@ -35,7 +35,7 @@ if (process.env.NODE_ENV == "development") {
     app.use(cors({
         methods: 'GET,POST,PATCH,DELETE,OPTIONS',
         optionsSuccessStatus: 200,
-        origin: 'https://sparkfit.vercel.app'
+        origin: 'https://sparkfit.vercel.app/'
       }));
       app.options('*', cors());
 }
