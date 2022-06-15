@@ -32,13 +32,20 @@ app.use(cookieParser())
 if (process.env.NODE_ENV == "development") {
     app.use(cors({ origin: `${process.env.CLIENT_URL}`}))
 } else if (process.env.NODE_ENV == "production") {
-    app.use(cors({
-        methods: 'GET,POST,PATCH,DELETE,OPTIONS',
-        optionsSuccessStatus: 200,
-        origin: 'https://sparkfit.vercel.app/'
-      }));
-      app.options('*', cors());
+    console.log("Production cors mode")
+    app.use(cors());
+    //{methods: 'GET,POST,PATCH,DELETE,OPTIONS',optionsSuccessStatus: 200,origin: 'https://sparkfit.vercel.app/'}
+    //app.options('*', cors());
 }
+
+
+/*app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});*/
 
 // Routes Middleware
 app.use("/api", profileRoutes)
